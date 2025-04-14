@@ -1,0 +1,237 @@
+.contact-text{
+    font-weight: 500;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.contact-flex{
+    display: flex;
+    gap: 3rem;
+    width: 80%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--main-accent-color);
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    padding: 25px 25px;
+    gap: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+    border-radius: 18px;
+    border: 1px solid var(--light-accent-color);
+}
+
+.card .card-content-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: var(--main-white);
+    font-size: 1rem;
+    margin-bottom: 1.6rem;
+}
+
+.card .card-content-1 h4{
+    margin-bottom: 1.8rem;
+}
+
+.card-content-1 ul li{
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.card-content-1 ul li i{
+    margin-right: 1rem;
+    font-size: 1.3rem;
+}
+
+.card .card-content-2{
+    display: flex;
+    justify-content: space-evenly;
+    width: 15rem;
+}
+  
+/* for all social containers*/
+.socialContainer {
+    width: 40px;
+    height: 50px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: 1.2s;
+    border-radius: 15px 0 15px 0px;
+}
+/* instagram*/
+.containerOne:hover {
+    background-color: #d62976;
+    transition-duration: 1.2s;
+}
+/* facebook */
+.containerTwo:hover {
+    background-color: #0072b9;
+    transition-duration: 1.2s;
+}
+/* linkdin*/
+.containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: 1.2s;
+}
+/* Whatsapp*/
+.containerFour:hover {
+    background-color: #1f6d23;
+    transition-duration: 1.2s;
+}
+  
+.socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: 1.2s;
+}
+  
+.socialSvg {
+    width: 17px;
+}
+  
+.socialSvg path {
+    fill: var(--main-white);
+}
+  
+.socialContainer:hover .socialSvg {
+    animation: slide-in-top 1.2s both;
+}
+  
+@keyframes slide-in-top {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+}
+  
+.form-container {
+    width: 40rem;
+    background: linear-gradient(var(--main-accent-color), var(--main-gray));
+    border: 1px solid var(--light-accent-color);
+    padding: 32px 24px;
+    font-size: 14px;
+    font-family: inherit;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.form-container h4{
+    text-align: center;
+}
+
+.form-container button:active {
+    scale: 0.95;
+}
+  
+.form-container .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+  
+.form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+  
+.form-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--other-gray);
+    font-weight: 600;
+    font-size: 12px;
+}
+  
+.form-container .form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    background-color: transparent;
+    border: 1px solid var(--light-accent-color);
+    display: initial;
+}
+.form-container .form-group textarea {
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    resize: none;
+    color: #fff;
+    height: 96px;
+    border: 1px solid var(--light-accent-color);
+    background-color: transparent;
+    font-family: inherit;
+}
+  
+.form-container .form-group input::placeholder {
+    opacity: 0.5;
+}
+  
+.form-container .form-group input:focus {
+    outline: none;
+    border-color: var(--main-gray);
+}
+  
+.form-container .form-group textarea:focus {
+    outline: none;
+    border-color: var(--main-gray);
+}
+  
+.form-container .form-submit-btn {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: flex-start;
+    font-family: inherit;
+    color: var(--main-white);
+    font-weight: 600;
+    width: 40%;
+    background: var(--light-accent-color);
+    border: 1px solid #414141;
+    padding: 12px 16px;
+    font-size: inherit;
+    gap: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+  
+.form-container .form-submit-btn:hover {
+    background-color: var(--main-gray);
+    color: var(--light-accent-color);
+}
+  
+
+@media screen and (max-width: 990px){
+    .card-content-1 ul{
+        display: initial;
+    }
+
+    #formContent .container{
+        padding: 0;
+    }
+    
+    .contact-flex{
+        width: 95%;
+    }
+}
