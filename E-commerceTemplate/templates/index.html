@@ -1,0 +1,23 @@
+import sqlite3
+from flask import Flask, render_template, request, redirect
+
+app = Flask(__name__)
+
+@app.route("/")
+def singup():
+    return render_template("login.html")
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        email_address = request.form['email']
+
+        # Open the connection here (inside the route)
+        db = sqlite3.connect('database.db')
+        db.execute("INSERT INTO users (username, email) VALUES (?, ?)", (username, email_address))
+        db.commit()
+        db.close()
+
+        return redirect('index.html')
+    return render_template('index.html')
