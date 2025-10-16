@@ -1,24 +1,59 @@
-html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TMN ONLINE STORE</title>
+    <link rel="stylesheet" href="/E-commerceTemplate/static/styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-inner">
+        <!-- Brand -->
+        <a href="index.html" class="brand">
+          <img
+            src="/E-commerceTemplate/static/images/TMN logo.png"
+            alt="TMN Logo"
+            class="logo-img"
+          />
+          <span>OnlineShop</span>
+        </a>
 
-    <head>
+        <!-- Hamburger -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">
+          <span></span>
+        </label>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, width=device-width">
-        <link href="/static/style.css" rel="stylesheet">
-
-        <title></title>
-
-        <body>
-            <div style="background-color:#ffff00">
-                <h1 style="text-align:center">E commerce store</h1>
-            </div>
-                {% block main %} {% endblock %}
-
-            <h4 style="font-size; text-align:center"><template></template>.com</h4>
-            <h5 style="font-size:small; text-align:center">welcome to homepage</h5>
-            <h6 style='font-size:small; text-align:center'>copyrights &#169; netfuse
-
-            </h6>
-        </body>
-
-    </html>
+        <!-- Menu -->
+        <ul class="menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="#">Product</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <form class="search">
+            <input type="search" placeholder="Search…" required />
+            <button type="submit">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </form>
+          <button class="nav-btn">
+            <a href="login.html" class="btn">Log In</a>
+          </button>
+        </ul>
+      </div>
+    </header>
+    <main></main>
+    <footer>
+      <p>&copy; 2025 TMN Online Store. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

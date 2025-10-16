@@ -1,23 +1,81 @@
-import sqlite3
-from flask import Flask, render_template, request, redirect
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TMN ONLINE STORE</title>
+    <link rel="stylesheet" href="/E-commerceTemplate/static/styles.css" />
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-inner">
+        <!-- Brand -->
+        <a href="index.html" class="brand">
+          <img
+            src="/E-commerceTemplate/static/images/TMN logo.png"
+            alt="TMN Logo"
+            class="logo-img"
+          />
+          <span>OnlineShop</span>
+        </a>
 
-app = Flask(__name__)
+        <!-- Hamburger -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">
+          <span></span>
+        </label>
 
-@app.route("/")
-def singup():
-    return render_template("login.html")
+        <!-- Menu -->
+        <ul class="menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="#">Product</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <form class="search">
+            <input type="search" placeholder="Search…" required />
+            <button type="submit">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </form>
+          <button class="nav-btn">
+            <a href="login.html" class="btn">Log In</a>
+          </button>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <!-- HERO SECTION -->
+      <section class="hero">
+        <div class="hero-inner">
+          <h1>Style That Speaks</h1>
+          <p>
+            Discover fashion that fits your vibe curated collections, everyday
+            essentials, and standout pieces for every moment.
+          </p>
+          <div class="hero-btns">
+            <a href="#" class="btn primary">View Products</a>
+            <a href="#" class="btn secondary">Learn More</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        email_address = request.form['email']
-
-        # Open the connection here (inside the route)
-        db = sqlite3.connect('database.db')
-        db.execute("INSERT INTO users (username, email) VALUES (?, ?)", (username, email_address))
-        db.commit()
-        db.close()
-
-        return redirect('index.html')
-    return render_template('index.html')
+import sqlite3 from flask import Flask, render_template, request, redirect app =
+Flask(__name__) @app.route("/") def singup(): return
+render_template("login.html") @app.route('/login', methods=['GET', 'POST']) def
+login(): if request.method == 'POST': username = request.form['username']
+email_address = request.form['email'] # Open the connection here (inside the
+route) db = sqlite3.connect('database.db') db.execute("INSERT INTO users
+(username, email) VALUES (?, ?)", (username, email_address)) db.commit()
+db.close() return redirect('index.html') return render_template('index.html')
