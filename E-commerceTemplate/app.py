@@ -1,27 +1,39 @@
-from flask import Flask, flash, redirect, render_template, request, session
-import sqlite3  # For SQLite databases
+import sqlite3
+from flask import Flask, render_template, request, redirect
 
-# Connect to database
-db = sqlite3.connect('database.db')
-
-# Configure application
 app = Flask(__name__)
 
 @app.route("/")
 def singup():
     return render_template("login.html")
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == "POST":
-        username = request.form.get("username")
-        email_address = request.form.get("email")
+    if request.method == 'POST':
+        username = request.form['username']
+        email_address = request.form['email']
+
+        # Open the connection here (inside the route)
+        db = sqlite3.connect('database.db')
+        cursor = db.cursor()
         
-        # Fixed: Pass parameters as a tuple
-        db.execute("INSERT INTO users (username, email) VALUES (?, ?)", 
-                  (username, email_address))
-        
-        db.commit()
-        return redirect("/")
+        try:
+            # Check if email already exists
+            cursor.execute("SELECT id FROM users WHERE email = ?", (email_address,))
+            existing_user = cursor.fetchone()
+            
+            if existing_user:
+                db.close()
+                return "This email is already registered. Please use a different email or login."
+            
+            # Insert new user
+            cursor.execute("INSERT INTO users (username, email) VALUES (?, ?)", (username, email_address))
+            db.commit()
+            db.close()
+            return redirect('index.html')
+            
+        except Exception as e:
+            db.close()
+            return f"Error: {str(e)}"
     
-    return render_template("login.html")
+    return render_template('layout.html')
