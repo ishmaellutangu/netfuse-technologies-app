@@ -98,10 +98,6 @@ body {
   outline: none;
 }
 
-.search input::placeholder {
-  color: #b6c0c9;
-}
-
 .search button {
   position: absolute;
   right: 0.6rem;
@@ -152,6 +148,18 @@ body {
   box-shadow: 0 8px 32px -8px rgba(255, 255, 255, 0.55);
 }
 
+.nav-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: 1rem;
+  color: var(--text);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
 /* Hamburger */
 .menu-toggle {
   display: none;
@@ -215,7 +223,7 @@ body {
   font-size: clamp(1.75rem, 5vw, 3.2rem);
   margin-bottom: clamp(12px, 2vw, 24px);
   font-weight: 700;
-  color: var(--text);
+  color: var(--light-accent-color);
   line-height: 1.2;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
