@@ -50,6 +50,7 @@ body {
 .form .input:focus {
   outline: none;
   border-inline: 2px solid #000000;
+  color: #f8f9fd;
 }
 
 .form .forgot-password {
