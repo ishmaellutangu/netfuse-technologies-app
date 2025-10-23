@@ -47,6 +47,7 @@ p {
 .sidebar {
   width: 250px;
   background-color: var(--secondary-color);
+  box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.575);
   color: #fff;
   min-height: 100vh;
   position: fixed;
@@ -114,16 +115,18 @@ p {
 }
 .main-content header .search {
   position: relative;
+  padding: 0.6rem 2.5rem 0.6rem 0.75rem;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.575);
 }
 
 .main-content header .search input {
   width: 100%;
-  padding: 0.6rem 2.5rem 0.6rem 0.75rem;
-  font-size: 0.8rem;
-  background: var(--secondary-color);
+  font-size: 0.9rem;
+  background: transparent;
   color: var(--text-color2);
-  border: 1px solid var(--text-color1);
-  border-radius: 12px;
+  border: none;
   outline: none;
 }
 
@@ -147,10 +150,11 @@ p {
   opacity: 0.8;
 }
 .main-content header .profile-menu .profile-pic {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border: solid 2px var(--secondary-color);
   border-radius: 50%;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.575);
   object-fit: cover;
   cursor: pointer;
 }
@@ -173,9 +177,10 @@ p {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background: var(--primary-color);
+  background: var(--secondary-color);
+
   border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   min-width: 160px;
   display: none;
   flex-direction: column;
@@ -186,11 +191,11 @@ p {
 .main-content header .profile-menu .profile-dropdown a {
   padding: 0.6rem 1rem;
   display: block;
-  color: var(--text-color1);
+  color: var(--text-color2);
 }
 
 .main-content header .profile-menu .profile-dropdown a:hover {
-  background: rgba(0,0,0,0.05);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .main-content header .profile-menu .profile-dropdown.open {
@@ -240,6 +245,7 @@ p {
   background-color: var(--primary-color);
   padding: 1.5rem;
   border-radius: 8px;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.575);
 }
 .main-content .recent-orders .section-header,
 .main-content .product-list .section-header {
