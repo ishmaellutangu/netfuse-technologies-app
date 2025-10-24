@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 :root {
   --text: #fff9e3;
@@ -18,7 +19,7 @@ body {
   background: var(--text);
   color: var(--text);
   line-height: 1.45;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* NAVBAR */
@@ -160,6 +161,7 @@ body {
   color: var(--text);
   font-size: clamp(1.2rem, 2vw, 1.5rem);
 }
+
 /* Hamburger */
 .menu-toggle {
   display: none;
@@ -201,25 +203,69 @@ body {
   top: 6px;
 }
 
-/* HERO SECTION */
-.hero {
-  min-height: calc(100vh - clamp(60px, 5vw, 90px));
+/* HERO SECTION (Replaced with Fashion Slideshow) */
+.fashion-slideshow-hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 2rem;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url(/E-commerceTemplate/static/images/hero-bg.jpg);
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
 }
 
-.hero-inner {
-  background: #00000041;
+.fashion-slideshow-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.fashion-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.fashion-slide:nth-child(1) {
+  animation: fadeSlide 15s infinite;
+}
+
+.fashion-slide:nth-child(2) {
+  animation: fadeSlide 15s infinite 5s;
+}
+
+.fashion-slide:nth-child(3) {
+  animation: fadeSlide 15s infinite 10s;
+}
+
+@keyframes fadeSlide {
+  0% { opacity: 0; z-index: 2; }
+  10% { opacity: 1; }
+  33.33% { opacity: 1; }
+  43.33% { opacity: 0; }
+  100% { opacity: 0; z-index: 1; }
+}
+
+.fashion-slideshow-content {
+  position: relative;
+  z-index: 3;
+  max-width: 700px;
   padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
 }
-.hero h1 {
+
+.fashion-slideshow-content h1 {
   font-size: clamp(1.75rem, 5vw, 3.2rem);
   margin-bottom: clamp(12px, 2vw, 24px);
   font-weight: 700;
@@ -228,35 +274,87 @@ body {
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
-.hero p {
+.fashion-slideshow-content p {
   font-size: clamp(0.875rem, 2.5vw, 1.125rem);
   margin-bottom: 1.5rem;
   color: #d1d5db;
 }
 
-.hero-btns {
+.fashion-slideshow-buttons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1.2rem;
 }
 
-.hero .btn.primary,
-.hero .btn.secondary {
-  padding: clamp(8px, 1.5vw, 10px) clamp(20px, 2vw, 26px);
-  border-radius: 12px;
-  text-decoration: none;
-}
-
-.hero .btn.primary {
+.fashion-slide-btn.primary {
   background: var(--mid-accent-color);
   color: #0a0f0a;
+  padding: clamp(8px, 1.5vw, 10px) clamp(20px, 2vw, 26px);
+  border-radius: 12px;
 }
 
-.hero .btn.secondary {
+.fashion-slide-btn.secondary {
   background: transparent;
   border: 2px solid var(--mid-accent-color);
   color: var(--text);
+  padding: clamp(8px, 1.5vw, 10px) clamp(20px, 2vw, 26px);
+  border-radius: 12px;
+}
+
+/* FEATURED PRODUCTS SECTION */
+.featured-products {
+  padding: 2rem;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.featured-products h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark-accent-color);
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.product-item {
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  width: 200px;
+  color: var(--dark-accent-color);
+}
+
+/* FOOTER */
+.footer {
+  background-color: var(--dark-accent-color);
+  color: var(--text);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links a:hover {
+  color: var(--mid-accent-color);
 }
 
 /* Responsive */

@@ -3,12 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TMN ONLINE STORE</title>
+    <title>Netstore</title>
     <link rel="stylesheet" href="../static/css/styles.css" />
-    <script
-      src="https://kit.fontawesome.com/1a60db1b94.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/1a60db1b94.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header class="nav">
@@ -16,11 +13,10 @@
         <!-- Brand -->
         <a href="index.html" class="brand">
           <img
-            src="/E-commerceTemplate/static/images/TMN logo.png"
-            alt="TMN Logo"
+            src=""
             class="logo-img"
           />
-          <span>OnlineShop</span>
+          <span>Netstore</span>
         </a>
 
         <!-- Hamburger -->
@@ -35,7 +31,8 @@
           <li><a href="#">Shop</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
-          <form class="search">
+          <li><a href="#">🏠 MyDashboard</a></li>
+          <li class="search">
             <input type="search" placeholder="Search…" required />
             <button type="submit">
               <svg viewBox="0 0 24 24">
@@ -48,41 +45,56 @@
                 />
               </svg>
             </button>
-          </form>
-          <button class="nav-btn">
-            <a href="login.html" class="btn">Log In</a>
-          </button>
-          <button class="nav-cart">
-            <i class="fa-solid fa-cart-shopping"></i>
-          </button>
+          </li>
+          <li>
+            <button class="nav-btn">
+              <a href="login.html" class="btn">Log In</a>
+            </button>
+          </li>
+          <li>
+            <button class="nav-cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+          </li>
         </ul>
       </div>
     </header>
     <main>
-      <!-- HERO SECTION -->
-      <section class="hero">
-        <div class="hero-inner">
+      <!-- FASHION SLIDESHOW HERO SECTION -->
+      <section class="fashion-slideshow-hero">
+        <div class="fashion-slideshow-images">
+          <img src="../static/images/carousel-1.jpg" class="fashion-slide" alt="Look 1">
+          <img src="../static/images/header-img.jpg" class="fashion-slide" alt="Look 2">
+          <img src="../static/images/hero-bg.jpg" class="fashion-slide" alt="Look 3">
+        </div>
+        <div class="fashion-slideshow-content">
           <h1>Style That Speaks</h1>
           <p>
-            Discover fashion that fits your vibe curated collections, everyday
+            Discover fashion that fits your vibe — curated collections, everyday
             essentials, and standout pieces for every moment.
           </p>
-          <div class="hero-btns">
+          <div class="fashion-slideshow-buttons">
             <a href="#" class="btn primary">Shop Now</a>
             <a href="#" class="btn secondary">Learn More</a>
           </div>
         </div>
       </section>
+
+      <!-- FEATURED PRODUCTS SECTION -->
+      <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+          <div class="product-item">Product 1</div>
+          <div class="product-item">Product 2</div>
+          <div class="product-item">Product 3</div>
+        </div>
+      </section>
     </main>
-    <footer></footer>
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="https://whatsapp.com" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </footer>
   </body>
 </html>
-
-import sqlite3 from flask import Flask, render_template, request, redirect app =
-Flask(__name__) @app.route("/") def singup(): return
-render_template("login.html") @app.route('/login', methods=['GET', 'POST']) def
-login(): if request.method == 'POST': username = request.form['username']
-email_address = request.form['email'] # Open the connection here (inside the
-route) db = sqlite3.connect('database.db') db.execute("INSERT INTO users
-(username, email) VALUES (?, ?)", (username, email_address)) db.commit()
-db.close() return redirect('index.html') return render_template('index.html')
