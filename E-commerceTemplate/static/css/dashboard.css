@@ -1,10 +1,17 @@
 /*  Variables  */
 :root {
-  --primary-color: #ebe2e0;
+  --primary-color: #ffff;
   --secondary-color: #990302;
   --text-color1: #333;
-  --text-color2: #fff;
+  --text-color2: #a1d1b1;
 }
+/* Dark theme variable overrides when body has .dark-theme */
+body.dark-theme {
+  --primary-color: #1f2937; /* darker card backgrounds */
+  --secondary-color: #990302; /* keep accent similar */
+  --text-color1: #e6e6e6; /* primary text on dark bg */
+}
+
 /*  Global Styles  */
 * {
   margin: 0;
@@ -14,8 +21,9 @@
 
 body {
   font-family: sans-serif;
-  background-color: var(--text-color2);
+  background-color: var(--primary-color);
   color: var(--text-color1);
+  transition: background-color 180ms ease, color 180ms ease;
 }
 a {
   text-decoration: none;
@@ -27,8 +35,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: bold;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
 }
 p {
   line-height: 1.6;
@@ -36,19 +44,23 @@ p {
 }
 .btn1 {
   background-color: var(--secondary-color);
-  color: var(--text-color2);
+  box-shadow: 2px 2px 16px rgb(0, 0, 0);
+  color: var(--primary-color);
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
 }
+.btn1:hover {
+  background-color: var(--text-color2);
+  color: var(--primary-color);
+}
 /*  Dashboard Specific Styles  */
 .sidebar {
   width: 250px;
-  background-color: var(--secondary-color);
   box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.575);
-  color: #fff;
+  color: var(--text-color1);
   min-height: 100vh;
   position: fixed;
   top: 0;
@@ -59,20 +71,59 @@ p {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
-  /* text-align: center; */
 }
 .sidebar-header .logo {
   height: auto;
   margin-bottom: 0.5rem;
-  color: #352323;
+  color: var(--secondary-color);
 }
 .sidebar-header .logo-accent {
   height: auto;
   margin-bottom: 0.5rem;
-  color: #c47623;
+  color: var(--text-color2);
 }
 .close-sidebar {
   display: none;
+}
+
+/* Dark mode toggle in sidebar header */
+.dark-mode-toggle {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.dark-mode-toggle input[type="checkbox"] {
+  width: 36px;
+  height: 20px;
+  appearance: none;
+  background: #ccc;
+  border-radius: 999px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  transition: background 150ms ease;
+}
+.dark-mode-toggle input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 150ms ease;
+}
+.dark-mode-toggle input[type="checkbox"]:checked {
+  background: var(--secondary-color);
+}
+.dark-mode-toggle input[type="checkbox"]:checked::after {
+  transform: translateX(16px);
+}
+.dark-mode-toggle .dark-mode-label {
+  font-size: 0.9rem;
+  color: var(--text-color1);
 }
 .sidebar ul {
   list-style: none;
@@ -82,7 +133,7 @@ p {
   margin: 1.5rem 0;
 }
 .sidebar ul li a {
-  color: var(--text-color2);
+  color: var(--text-color1);
   font-size: 1.1rem;
   display: block;
   padding: 0.5rem;
@@ -90,13 +141,14 @@ p {
   transition: background-color 0.3s;
 }
 .sidebar ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 .sidebar ul li a .icon {
   margin-right: 1rem;
 }
 .sidebar ul li a:active {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--secondary-color);
 }
 .main-content {
   margin-left: 250px;
@@ -125,7 +177,7 @@ p {
   width: 100%;
   font-size: 0.9rem;
   background: transparent;
-  color: var(--text-color2);
+  color: var(--primary-color);
   border: none;
   outline: none;
 }
@@ -138,7 +190,7 @@ p {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--text-color2);
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   font-size: 1rem;
@@ -177,7 +229,8 @@ p {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background: var(--secondary-color);
+  background: var(--primary-color);
+  border: var(--secondary-color) 1px solid;
 
   border-radius: 8px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
@@ -191,11 +244,12 @@ p {
 .main-content header .profile-menu .profile-dropdown a {
   padding: 0.6rem 1rem;
   display: block;
-  color: var(--text-color2);
+  color: var(--text-color1);
 }
 
 .main-content header .profile-menu .profile-dropdown a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .main-content header .profile-menu .profile-dropdown.open {
@@ -221,9 +275,10 @@ p {
   padding: 1rem;
   flex: 1 1 calc(25% - 1rem);
   border-radius: 8px;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.575);
+  box-shadow: 2px 2px 16px rgb(0, 0, 0);
 }
 .main-content section .card h3 {
+  color: var(--secondary-color);
   font-size: 1rem;
   font-weight: 600;
   font-family: sans-serif;
@@ -236,7 +291,7 @@ p {
 }
 .main-content section .card span {
   font-size: 0.9rem;
-  color: var(--secondary-color);
+  color: var(--text-color2);
 }
 .main-content .recent-orders,
 .main-content .product-list {
@@ -245,7 +300,7 @@ p {
   background-color: var(--primary-color);
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.575);
+  box-shadow: 2px 2px 16px rgb(0, 0, 0);
 }
 .main-content .recent-orders .section-header,
 .main-content .product-list .section-header {
@@ -262,6 +317,6 @@ p {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
-  background-color: var(--text-color1);
-  color: var(--text-color2);
+  background-color: rgba(0, 0, 0, 0.356);
+  color: var(--secondary-color);
 }
