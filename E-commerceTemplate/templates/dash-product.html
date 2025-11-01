@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/dashboard.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <button class="menu-btn" id="p">&#9776</button>
+        <h1>Product Management</h1>
+        <form class="search">
+          <input type="search" placeholder="Search…" required />
+          <button type="submit">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"                
+              />
+            </svg>
+          </button>
+        </form>
+        <div class="profile-menu">
+          <button class="profile-btn" aria-haspopup="true" aria-expanded="false" aria-controls="profileDropdown">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="profile" class="profile-pic">
+          </button>
+          <div id="profileDropdown" class="profile-dropdown" role="menu" aria-hidden="true">
+            <a href="#" role="menuitem">My Profile</a>
+            <a href="#" role="menuitem">Settings</a>
+            <a href="#" role="menuitem">Logout</a>
+          </div>
+        </div>
+    </header>
+      <div class="content-window" name="_top">
+        <h2>Product Management Section</h2>
+        <p>Here you can manage your products.</p>
+      </div>
+    </main>
+  </body>
+</html>

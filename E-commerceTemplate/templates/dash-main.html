@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <title>Document</title>
+</head>
+<body>
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <button class="menu-btn" id="p">&#9776</button>
+        <h1>Dashboard</h1>
+        <form class="search">
+          <input type="search" placeholder="Search…" required />
+          <button type="submit">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"                
+              />
+            </svg>
+          </button>
+        </form>
+        <div class="profile-menu">
+          <button class="profile-btn" aria-haspopup="true" aria-expanded="false" aria-controls="profileDropdown">
+            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="profile" class="profile-pic">
+          </button>
+          <div id="profileDropdown" class="profile-dropdown" role="menu" aria-hidden="true">
+            <a href="#" role="menuitem">My Profile</a>
+            <a href="#" role="menuitem">Settings</a>
+            <a href="#" role="menuitem">Logout</a>
+          </div>
+        </div>
+      </header>
+      <div class="content-window" name="_top">
+        <!--  Cards  -->
+        <section class="dashboard-cards">
+          <div class="card">
+            <h3>Orders</h3>
+            <p class="card-value" id="ordersCount">1,203</p>
+            <span class="card-analysis">+5% this week</span>
+          </div>
+
+          <div class="card">
+            <h3>Sales</h3>
+            <p class="card-value" id="ordersCount">32,200</p>
+            <span class="card-analysis">+8% this week</span>
+          </div>
+
+          <div class="card">
+            <h3>Customers</h3>
+            <p class="card-value" id="ordersCount">865</p>
+            <span class="card-analysis">+2% this week</span>
+          </div>
+
+          <div class="card">
+            <h3>Revenue</h3>
+            <p class="card-value" id="ordersCount">4,520</p>
+            <span class="card-analysis">+12% this week</span>
+          </div>
+        </section>
+
+        <!--  Recent Orders  -->
+        <section class="recent-orders">
+          <div class="section-header">
+            <h2>Recent Orders</h2>
+            <button class="btn1 view-all">View All</button>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Order #</th>
+                <th>Customer</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTable">
+              <!--  Js will populate  -->
+            </tbody>
+          </table>
+        </section>
+           
+        <!-- Product List -->
+        <section class="product-list">
+          <div class="section-header">
+            <h2>Featured Product</h2>
+            <button class="btn1 add-product">Add Product</button>
+          </div>
+          <div class="products-grid" id="productsGrid">
+            <!-- JS will populate -->
+          </div>
+        </section>
+      </div>
+    </main>
+</body>
+</html>
