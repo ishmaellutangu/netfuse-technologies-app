@@ -321,3 +321,53 @@ p {
   background-color: rgba(0, 0, 0, 0.356);
   color: var(--secondary-color);
 }
+
+.recent-orders table tbody tr {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--text-color2);
+}
+.recent-orders table tbody tr:last-child {
+  border-bottom: none;
+}
+.recent-orders table tbody tr:hover {
+  background-color: rgba(153, 3, 2, 0.123);
+}
+
+.page-content h2 {
+  margin: 2rem 0;
+}
+
+/* ------------------- Product management Page ---------------------  */
+.add-product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 2px 2px 16px rgb(0, 0, 0);
+  min-width: 60%;
+}
+.add-product-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.add-product-form input,
+.add-product-form textarea,
+.add-product-form select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--text-color2);
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--text-color1);
+}
